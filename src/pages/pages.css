@@ -1,0 +1,253 @@
+.pages{
+    margin: 0% 2% 0% 2%;
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    justify-content: center;
+}
+.nav-link{
+    display: flex;
+}
+.nav-change{
+    margin-left: auto;
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+}
+.nav-change>li{
+    padding-left: 20px;
+}
+.nav-change>li>button{
+    height: 30px;
+    background-color: #EF233C;
+    color: white;
+}
+.search>button{
+    height: 40px;
+    font-size: 120%;
+
+    background-color: #EF233C;
+
+}
+.search>input,.nav-change>select{
+    height: 35px;
+}
+
+.nav-table{
+    margin-top:20px;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    table-layout: auto;
+    border-collapse: collapse;
+
+}
+.table-row{
+    height: 50px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+}
+.nav-table tbody tr:nth-child(odd){
+    background-color: #e0e0e0;
+}
+th,td{
+    /* text-align: center; */
+    text-align: left;
+    padding-left: 20px;
+}
+.pagination{
+    padding:30px 0px 0px 0px;
+    float: right;
+    list-style-type: none;
+    display: flex;
+}
+.pagination li{
+    padding-left: 14px;
+}
+.pagination>li>a:hover{
+    color: red;
+}
+.pagination>li>a:{
+    color:red
+}
+
+
+.setting-top{
+
+}
+.setting-body{
+    /* padding-top: 20px; */
+    width: 50%;
+    height: 50vh;
+    background-color: white;
+}
+.setting-links{
+    /* padding-top: 20px; */
+    width: 100%;
+    height: 20px;
+    list-style-type: none;
+    display: flex;
+    position: fixed;
+}
+.setting-links>li:hover{
+    color:red;
+    cursor: pointer;
+}
+.setting-links li{
+    padding-left: 3%;
+    /* position: relative; */
+}
+.setting-main{
+    position: fixed;
+    margin-left:5.1%;
+    margin-top: 4%;
+    width: 26%;
+    height: 38%;
+    /* border: 1px solid red; */
+    /* padding-top: 30px; */
+}
+.setting-form{
+    padding-bottom: 20px;
+    width: 100%;
+}
+.setting-form>button{
+    height: 40px;
+    width: 17%;
+}
+.setting-form>button:hover{
+    cursor: pointer;
+    background-color:red
+}
+.setting-form>input{
+    width: 60%;
+    margin-right: 20px;
+    height: 35px;
+}
+
+.setting-main>img{
+    border-radius: 100%;
+    height: 200px;
+    width: 200px;
+}
+.setting-main>form>{
+    margin-top: 20px
+    
+}
+.dots{
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.dots>svg{
+    padding-top: 2px;
+}
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 300px;;
+    padding-top: 100px;
+    width: 85%;
+    overflow-x: scroll;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgb(0,0,0,0.4);
+}
+.modal-content{
+    background-color: white;
+    border: 1px solid rgb(117, 60, 117);
+    width: 40%;
+    padding: 30px;
+    margin: auto;
+}
+.modal-form{
+    /* text-align: center; */
+    margin: 10%;
+}
+.modal-form-f{
+    padding: 10px;
+}
+.modal-form-f>label{
+    padding-top: 10px;
+    font-size: larger;
+    font-weight: bold;
+}
+.modal-form-f>input,.modal-form-f>button{
+    width: 100%;
+    height: 45px;
+}
+.close{
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover{
+    cursor: pointer;
+    color: brown;
+}
+.back{
+    display: flex;
+}
+.back:hover{
+    cursor: pointer;
+}
+
+/* Office and Accounts */
+
+.office_accounts{
+    display: flex;
+    /* flex-direction: row; */
+    padding-top: 50px;
+}
+.office{
+    width: 40%;
+}
+.office-f{
+    padding:10px 0px;
+}
+.office-f>input{
+    width: 50%;
+    height: 35px;
+}
+.office-f>button{
+    width: 50%;
+    height: 40px;
+}
+.accounts{
+    width: 35%;
+    /* border: 1px solid lightblue; */
+}
+.account{
+    border-radius: 7px;
+    padding: 14px;
+    width: 400px;
+    margin: 30px;
+    background-color: white;
+}
+.account>p,.account>span{
+    /* padding: 7px; */
+}
+
+.update-modal,.add-modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 294px;;
+    padding-top: 100px;
+    width: 85%;
+    overflow-x: scroll;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgb(0,0,0,0.4);
+}
+.update-modal-content{
+    background-color: white;
+    width: 40%;
+    padding: 30px;
+    margin: auto;
+}
