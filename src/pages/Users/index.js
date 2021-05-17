@@ -11,7 +11,7 @@ export class Users extends react.Component{
     }
     componentDidMount(){
         console.log(localStorage.getItem("token"))
-        fetch('http://localhost:3000/users',{
+        fetch('/users',{
             method:'GET',
             "headers":{
                 "accept": "application/json",

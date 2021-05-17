@@ -145,9 +145,19 @@ export default class Office extends react.Component{
         var modal = document.getElementsByClassName('add-modal')[0]
         modal.style.display='block'
     }
-    update_account(){
+    update_account=(id)=>(e)=>{
         var modal = document.getElementsByClassName('update-modal')[0]
         modal.style.display='block'
+        this.state.data.filter((data)=>{
+            if(data._id===id){
+                this.setState({
+                    amount:data.account_amount,
+                    required_holders:data.required_holders,
+                    no_of_times:data.no_of_times,
+                    type_value:data.type
+                })
+            }
+        })
     }
     close(){
         var add = document.getElementsByClassName('add-modal')[0]
@@ -219,7 +229,7 @@ export default class Office extends react.Component{
                                 return <div className="account" key={index}>
                                 <p>Amount:{d.account_amount}</p>
                                 <span>Holders:{d.required_holders}</span><span>Times:{d.no_of_times}</span><hr/>
-                                <button onClick={this.update_account}>update</button>
+                                <button onClick={this.update_account(d._id)}>update</button>
                                 <button onClick={this.delete_account} style={{marginLeft:'33%'}}>delete</button>
                                 <button onClick={this.hold_account} style={{ float:'right'}}>hold</button>
                             </div>
