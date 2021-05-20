@@ -12,7 +12,7 @@ export default class Register extends react.Component{
             password:'',
             error:'',
             mail:false,
-            step:2,
+            step:1,
             errormsg:'',
             officename:'',
             officetype:'',
@@ -55,7 +55,7 @@ export default class Register extends react.Component{
                 errormsg:"please enter the password"
             })
         }else{
-            fetch('http://localhost:3000/register',{
+            fetch('fin/register',{
                 method:'POST',
                 'headers':{
                     'Content-Type':'application/json'
@@ -121,7 +121,7 @@ export default class Register extends react.Component{
                 error:"city"
             })
         }else{
-            fetch('http://localhost:3000/office',{
+            fetch('/office',{
                 method:"POST",
                 headers:{
                     'Content-Type':'application/json',
@@ -143,6 +143,8 @@ export default class Register extends react.Component{
                         errormsg:'creating office failed',
                         error:'city'
                     })
+                }else{
+                    window.location.pathname='/home/dashboard'   
                 }
             }).catch(err=>{
                 console.log(err)

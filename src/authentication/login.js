@@ -39,8 +39,7 @@ export default class Login extends react.Component{
                 error:"password"
             })
         }else if(this.state.userphone.length===10 && this.state.password.length>0){
-            console.log("ddkkdk")
-            fetch(`http://localhost:3000/login`,{
+            fetch(`/fin/login`,{
                 method:'POST',
                 headers:{
                     "Content-Type": "application/json"
