@@ -64,6 +64,7 @@ export default class Login extends react.Component{
                 }
                 else{
                     localStorage.setItem('token',data.token)
+                    localStorage.setItem('account',data.user.accounts[0])
                     window.location.pathname='/home/users'
                     console.log('login success')
                 }

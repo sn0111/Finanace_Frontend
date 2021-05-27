@@ -10,23 +10,21 @@ import { Payments } from "../pages/Payments"
 import { Users } from "../pages/Users"
 import { Customers } from "../pages/Users/customers"
 import Office from "../pages/settings/office"
-import { Component, useEffect } from "react"
+import { Component } from "react"
+import { Chat } from "../pages/Bidding/chat"
 
 
 export class Home extends Component{
     constructor(props){
         super(props);
         this.state={
+            isMobile:window.innerWidth
+        }
+    }
 
-        }
-    }
-    componentDidMount(){
-        if(!localStorage.getItem('token')){
-            window.location.pathname='/login'
-        }
-    }
     
     render(){
+
         return(
             <div className="home">
                 <Sidebar/>
@@ -36,7 +34,8 @@ export class Home extends Component{
                         <Switch>
                             <Route path="/home/dashboard" component={Dashboard} props/>
                             <Route path="/home/payments" component={Payments}/>
-                            <Route path="/home/bidding" component={Bidding}/>
+                            <Route path="/home/bidding1" component={Bidding}/>
+                            <Route path="/home/bidding" component={Chat}/>
                             <Route exact path="/home/users" component={()=><Users users={[]}/>}/>
                             <Route exact path="/home/customers" component={Customers}/>
                             <Route path="/home/office" component={Office}/>

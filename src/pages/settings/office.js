@@ -148,7 +148,7 @@ export default class Office extends react.Component{
     update_account=(id)=>(e)=>{
         var modal = document.getElementsByClassName('update-modal')[0]
         modal.style.display='block'
-        this.state.data.filter((data)=>{
+        this.state.data.forEach((data)=>{
             if(data._id===id){
                 this.setState({
                     amount:data.account_amount,
