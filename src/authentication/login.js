@@ -63,6 +63,7 @@ export default class Login extends react.Component{
                     })
                 }
                 else{
+                    console.log(data.user.accounts)
                     localStorage.setItem('token',data.token)
                     localStorage.setItem('account',data.user.accounts[0])
                     window.location.pathname='/home/users'
@@ -95,7 +96,7 @@ export default class Login extends react.Component{
         <div className="auth-input">
             <input type="submit" name="Submit"></input>
         </div>
-        <p className="auth-text">create new account? click <a href="/register">here</a></p>
+        <p className="auth-text">create new account? click <a href="/register"><span style={{color:"red"}}>here</span></a></p>
     </form>
         return(
             <Fragment>

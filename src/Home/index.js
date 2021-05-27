@@ -32,7 +32,7 @@ export class Home extends Component{
                     <Topbar/>
                     <div className="pages">
                         <Switch>
-                            <Route path="/home/dashboard" component={Dashboard} props/>
+                            <Route path="/home/dashboard" component={Dashboard}/>
                             <Route path="/home/payments" component={Payments}/>
                             <Route path="/home/bidding1" component={Bidding}/>
                             <Route path="/home/bidding" component={Chat}/>

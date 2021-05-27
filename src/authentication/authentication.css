@@ -36,6 +36,14 @@
     display: flex;
     flex-direction: column;
 }
+.auth-select{
+    padding-top: 20px;
+    width: 30%;
+}
+.auth-select>input{
+    width: 65%;
+    height: 30px;
+}
 .auth-input>input{
     width: 30%;
     height: 30px;

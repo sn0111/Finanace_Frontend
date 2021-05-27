@@ -1,7 +1,8 @@
 export const Dashboard =()=>{
     return(
-        <div>
-            <span>Dashboard</span>
+        <div className="pages">
+            <br/>
+            Dashboard is in under developing...............
         </div>
     )
 }

@@ -5,88 +5,29 @@ export class Payments extends react.Component{
     constructor(props){
         super(props);
         this.state={
-
+            data:[]
         }
     }
-    data = [
-        {
-            "username":"Nani",
-            "userphone":"2222222222",
-            "amount":"2500",
-            "sno":"1",
-            "status":"Unpaid"
-        },
-        {
-            "username":"Nani",
-            "amount":"2500",
-            "userphone":"2222222222",
-            "useremail":"nani@gmail.com",
-            "sno":"1",
-            "status":"Paid"
-        },
-        {
-            "username":"Nani",
-            "userphone":"2222222222",
-            "amount":"2500",
-            "useremail":"nani@gmail.com",
-            "sno":"1",
-            "status":"Unpaid"
-        },
-        {
-            "username":"Nani",
-            "amount":"2500",
-            "userphone":"2222222222",
-            "useremail":"nani@gmail.com",
-            "sno":"1",
-            "status":"Paid"
-        },
-        {
-            "username":"Nani",
-            "userphone":"2222222222",
-            "amount":"2500",
-            "useremail":"nani@gmail.com",
-            "sno":"1",
-        },
-        {
-            "username":"Nani",
-            "amount":"2500",
-            "userphone":"2222222222",
-            "useremail":"nani@gmail.com",
-            "sno":"1",
-            "status":"Unpaid"
-        },
-        {
-            "username":"Nani",
-            "userphone":"2222222222",
-            "amount":"2500",
-            "useremail":"nani@gmail.com",
-            "sno":"1",
-        },
-        {
-            "username":"Nani",
-            "userphone":"2222222222",
-            "useremail":"nani@gmail.com",
-            "sno":"1",
-            "amount":"2500",
-            "status":"Paid"
-        },
-        {
-            "username":"Nani",
-            "userphone":"2222222222",
-            "useremail":"nani@gmail.com",
-            "sno":"1",
-            "amount":"2500",
-        },
-        {
-            "username":"Nani",
-            "userphone":"2222222222",
-            "useremail":"nani@gmail.com",
-            "sno":"1",
-            "amount":"2500",
-        }
-    ]
+    componentDidMount(){
+        fetch('/payments',{
+            method:'GET',
+            "headers":{
+                "accept": "application/json",
+                "content-type": "application/json",
+                'Authorization':"Bearer "+localStorage.getItem("token"),
+                'account':localStorage.getItem('account')
+            }
+        }).then(res=>res.json())
+        .then(data=>{
+            if(!data.error){
+                this.setState({
+                    data:data
+                })
+            }
+        })
+    }
     change=(e)=>{
-        e.preventdDefault();
+        e.preventDefault();
         this.setState({
             [e.target.name]:e.target.value
         })
@@ -116,23 +57,25 @@ export class Payments extends react.Component{
                     </ul>
                 </div>
                 <table className="nav-table">
-                    <tbody>
+                    <thead>
                         <tr className="table-row">
                             <th>S.No</th>
-                            <th>Userphone</th>
-                            <th>Username</th>
-                            <th>Amount</th>
+                            <th>Total Amount</th>
+                            <th>Amount Paid</th>
+                            <th>Paid Date</th>
+                            <th>Due Date</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>action</th>
                         </tr>
-                    </tbody>
+                    </thead>
                     <tbody>
-                        {this.data.map((d,index)=>{
+                        {this.state.data.map((d,index)=>{
                             return <tr className="table-row" key={index}>
-                                <td>{d.sno}</td>
-                                <td>{d.userphone}</td>
-                                <td>{d.username}</td>
-                                <td>{d.amount}</td>
+                                <td>1</td>
+                                <td>{d.total_amount}</td>
+                                <td>{d.amount_paid}</td>
+                                <td>{d.paid_date}</td>
+                                <td>{d.due_date}</td>
                                 <td>{d.status}</td>
                                 <td>
                                 <div className="dots">

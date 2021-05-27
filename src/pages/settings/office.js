@@ -21,7 +21,7 @@ export default class Office extends react.Component{
         }
     }
     componentDidMount(){
-        fetch('http://localhost:3000/office',{
+        fetch('/office',{
             method:"GET",
             headers:{
                 'Authorization':'Bearer '+localStorage.getItem('token')
@@ -40,7 +40,7 @@ export default class Office extends react.Component{
             })
         }).catch(console.log)
         console.log(this.state.amount)
-        fetch('http://localhost:3000/account',{
+        fetch('/account',{
                 method:"GET",
                 headers:{
                     'Content-Type':'application/json',
@@ -49,9 +49,11 @@ export default class Office extends react.Component{
             }).then(res=>res.json())
             .then(data=>{
                 console.log(data)
-                this.setState({
-                    data:data
-                })
+                if(!data.error){
+                    this.setState({
+                        data:data
+                    })
+                }
             }).catch(e=>console.log(e))
     }
     add=(e)=>{
@@ -78,7 +80,7 @@ export default class Office extends react.Component{
                 error:'no_of_times'
             })
         }else{
-            fetch('http://localhost:3000/account',{
+            fetch('/account',{
                 method:"POST",
                 headers:{
                     'Content-Type':'application/json',
@@ -119,7 +121,7 @@ export default class Office extends react.Component{
                 error:'no_of_times'
             })
         }else{
-            fetch('http://localhost:3000/account',{
+            fetch('/account',{
                 method:"POST",
                 headers:{
                     'Content-Type':'application/json',

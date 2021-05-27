@@ -1,7 +1,7 @@
 import React from 'react'
 import io from 'socket.io-client';
 
-let socket = io("localhost:3000/")
+let socket = io("/")
 
 
 export class Chat extends React.Component{

@@ -7,7 +7,11 @@ export class Users extends react.Component{
         this.state={
             users:[],
             action:'list',
-            width:window.innerWidth
+            width:window.innerWidth,
+            username:'',
+            userphone:'',
+            useremail:'',
+            employe_id:''
         }
     }
 
@@ -17,7 +21,7 @@ export class Users extends react.Component{
             window.location.pathname='/login'
         }
         // console.log(localStorage.getItem("account"))
-        fetch('http://localhost:3000/account/users',{
+        fetch('/account/users',{
             method:'GET',
             "headers":{
                 "accept": "application/json",
@@ -64,6 +68,38 @@ export class Users extends react.Component{
             action:"list"
         })
     }
+    change=(e)=>{
+        e.preventDefault();
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+    create_user=(e)=>{
+        e.preventDefault();
+        fetch('/account/users',{
+            method:'POST',
+            "headers":{
+                "accept": "application/json",
+                "content-type": "application/json",
+                'Authorization':"Bearer "+localStorage.getItem("token"),
+                'account':localStorage.getItem('account')
+            },
+            body:JSON.stringify({
+                username:this.state.username,
+                userphone:this.state.userphone,
+                useremail:this.state.useremail,
+                employe_id:this.state.employe_id
+            })
+        }).then(res=>res.json())
+        .then(data=>{
+            if(data){
+               console.log(data)
+            }
+        })
+        this.close()
+        this.componentDidMount()
+    }
+    cha
     render(){
         const mobile = this.state.width<=650;
         var main;
@@ -109,11 +145,11 @@ export class Users extends react.Component{
                         <tbody>
                             {this.state.users.map((d,index)=>{
                                 return <tr className="table-row" key={index}>
-                                    <td>{d.sno}</td>
+                                    <td>{d._id}</td>
                                     <td>{d.userphone}</td>
                                     <td>{d.username}</td>
                                     <td>{d.useremail}</td>
-                                    <td>{d.status}</td>
+                                    <td>{d.is_staff}</td>
                                 </tr>
                             })}
                         </tbody>
@@ -250,22 +286,22 @@ export class Users extends react.Component{
                 <div className="modal-content">
                     <span className="close" onClick={this.close}>&times;</span>
                     <h1>Adding new Users</h1>
-                    <form className="modal-form">
+                    <form className="modal-form" onSubmit={this.create_user}>
                         <div className="modal-form-f">
                             <label>userphone</label><br/>
-                            <input type="text" name="userphone" value={this.state.userphone}/><br></br>
+                            <input type="text" name="userphone" value={this.state.userphone} onChange={this.change}/><br></br>
                         </div>
                         <div className="modal-form-f">
                             <label>username</label><br/>
-                            <input type="text" name="username" value={this.state.username}/><br></br>
+                            <input type="text" name="username" value={this.state.username} onChange={this.change}/><br></br>
                         </div>
                         <div className="modal-form-f">
                             <label>employe_id</label><br/>
-                            <input type="text" name="employe_id" value={this.state.employe_id}/><br></br>
+                            <input type="text" name="employe_id" value={this.state.employe_id} onChange={this.change}/><br></br>
                         </div>
                         <div className="modal-form-f">
                             <label>useremail</label><br/>
-                            <input type="email" name="useremail" value={this.state.useremail}/><br></br>
+                            <input type="email" name="useremail" value={this.state.useremail} onChange={this.change}/><br></br>
                         </div>
                         <div className="modal-form-f">
                             <button>submit</button>
