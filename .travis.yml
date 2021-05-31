@@ -18,6 +18,6 @@ deploy:
   bucket_name: "elasticbeanstalk-ap-south-1-647438919108"
   bucket_path: "finance"
   on:
-    branch: main
+    branch: master
   access_key_id: "AKIAZNPS54XCF52JFCSI"
   secret_access_key: "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"
