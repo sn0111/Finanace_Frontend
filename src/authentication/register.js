@@ -12,7 +12,7 @@ export default class Register extends react.Component{
             password:'',
             error:'',
             mail:false,
-            step:2,
+            step:1,
             errormsg:'',
             officename:'',
             officetype:'',

@@ -21,7 +21,11 @@ export class Home extends Component{
             isMobile:window.innerWidth
         }
     }
-
+    componentDidMount(){
+        if(localStorage.getItem('token')){
+            window.location.pathname='/home/office'
+        }
+    }
     
     render(){
 

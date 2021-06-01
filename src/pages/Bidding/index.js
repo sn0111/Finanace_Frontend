@@ -33,9 +33,9 @@ export const Bidding =()=>{
   // setChat(Data)
   console.log(Data)
   // const socketRef =useRef();
-  useEffect(()=>{
-    setChat(Data)
-  })
+  // useEffect(()=>{
+  //   setChat(Data)
+  // })
   useEffect(()=>{
     // socketRef.current = io.connect('http://localhost:3000/')
     socket.emit("socket id",localStorage.getItem("token"))

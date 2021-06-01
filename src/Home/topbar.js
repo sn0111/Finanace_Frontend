@@ -49,7 +49,7 @@ export class Topbar extends React.Component{
                                 })}
                             </select>
                         </li>
-                            <li><img src={img} alt="img"/></li>
+                            <li><img src={img} alt="img" className="top-img"/></li>
                             {/* <li>dkkdk</li> */}
                     </ul>
                 </div>
